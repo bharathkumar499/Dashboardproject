@@ -1,0 +1,261 @@
+/* Dashboard.css */
+
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #222;
+  --card-bg: #ffffff;
+  --primary-color: #4f46e5;
+  --secondary-color: #e0e7ff;
+  --note-bg: #fffecb;
+  --btn-color: #4f46e5;
+  --btn-text: #fff;
+}
+
+body.dark {
+  --bg-color: #1e1e2f;
+  --text-color: #eaeaea;
+  --card-bg: #2c2c3e;
+  --primary-color: #6366f1;
+  --secondary-color: #3f3f5c;
+  --note-bg: #666633;
+  --btn-color: #6366f1;
+  --btn-text: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+section {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  background-color: var(--btn-color);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  margin: 4px 4px 12px 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #3730a3;
+}
+
+#theme-toggle {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 6px 12px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: var(--secondary-color);
+  color: var(--text-color);
+  margin: 6px 0;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+li.done {
+  text-decoration: line-through;
+  color: gray;
+  background: #ccc;
+}
+
+.note {
+  background-color: var(--note-bg);
+  padding: 10px;
+  margin-top: 12px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  word-wrap: break-word;
+  min-height: 60px;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: crimson;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#timer-display {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 12px 0;
+  color: var(--primary-color);
+}
+
+#weather-output p {
+  margin-bottom: 6px;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search input {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  color: #555;
+  padding: 10px 25px;
+  height: 60px;
+  border-radius: 30px;
+  flex: 1;
+  margin-right: 16px;
+  font-size: 18px;
+}
+
+.search button {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.search button img {
+  width: 16px;
+}
+
+.weather-icon {
+  width: 170px;
+  margin-top: 30px;
+}
+
+.weather h1 {
+  font-size: 80px;
+  font-weight: 500;
+}
+
+.weather h2 {
+  font-size: 45px;
+  font-weight: 400;
+  margin-top: -10px;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-top: 50px;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.col img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.humidity, .wind {
+  font-size: 28px;
+  margin-top: -6px;
+}
+
+.weather {
+  display: none;
+}
+
+.error {
+  text-align: left;
+  margin-left: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  #timer-display {
+    font-size: 1.5rem;
+  }
+}
